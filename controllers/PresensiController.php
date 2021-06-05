@@ -73,6 +73,29 @@ class PresensiController extends Controller
         }
     }
 
+    public function actionPresensipegawai($id)
+    {
+        $logpresensi = \app\models\Logpresensi::findOne($id);
+        $logpresensi_id = $logpresensi['logpresensi_id'];
+        $lat = $logpresensi['latitude'];
+        $long = $logpresensi['longitude'];
+        $waktu_masuk = $logpresensi['waktu'];
+        $model = new Presensi();
+        
+        
+        if ($model->loadAll(Yii::$app->request->post()) && $model->saveAll()) {
+            return $this->redirect(['view', 'id' => $model->presensi_id]);
+        } else {
+            return $this->render('presensipegawai', [
+                'model' => $model,
+                'logpresensi_id' => $logpresensi_id,
+                'lat' => $lat,
+                'long' => $long,
+                'waktu_masuk' => $waktu_masuk
+            ]);
+        }
+    }
+
     /**
      * Updates an existing Presensi model.
      * If update is successful, the browser will be redirected to the 'view' page.

@@ -36,7 +36,7 @@ class Logpresensi extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['logpresensi_id', 'pegawai_id', 'latitude', 'longitude'], 'required'],
+            [['pegawai_id', 'latitude', 'longitude'], 'required'],
             [['logpresensi_id', 'pegawai_id'], 'string', 'max' => 20],
             [['latitude', 'longitude'], 'string', 'max' => 50]
         ];

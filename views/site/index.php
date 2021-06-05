@@ -97,7 +97,7 @@ $akun = 0;
                             </a>
                         </div>
                         <div class="myicon">
-                            <a href="index.php?r=presensi/create">
+                            <a href="index.php?r=logpresensi/logpegawai">
                                 <img src="icon/presensi.png" width="60px" style="margin-top: 10px">
                                 <div class="text-icon">Presensi</div>
                             </a>

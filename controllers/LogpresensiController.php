@@ -76,6 +76,19 @@ class LogpresensiController extends Controller
         }
     }
 
+    public function actionLogpegawai()
+    {
+        $model = new Logpresensi();
+
+        if ($model->loadAll(Yii::$app->request->post()) && $model->saveAll()) {
+            return $this->redirect(['/presensi/presensipegawai', 'id' => $model->logpresensi_id]);
+        } else {
+            return $this->render('logpegawai', [
+                'model' => $model,
+            ]);
+        }
+    }
+
     /**
      * Updates an existing Logpresensi model.
      * If update is successful, the browser will be redirected to the 'view' page.
